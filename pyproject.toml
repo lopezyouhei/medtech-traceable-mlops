@@ -12,3 +12,8 @@ dependencies = [
     "prefect>=3.6.21",
     "scikit-learn>=1.8.0",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
