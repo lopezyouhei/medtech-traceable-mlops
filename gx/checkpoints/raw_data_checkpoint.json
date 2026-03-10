@@ -1,0 +1,12 @@
+{
+  "actions": [],
+  "id": "60853d2a-e779-45aa-9bed-0c2540694240",
+  "name": "raw_data_checkpoint",
+  "result_format": "SUMMARY",
+  "validation_definitions": [
+    {
+      "id": "1e8c2026-d311-4a11-ad4e-27e41297ffe3",
+      "name": "raw_data_val_def"
+    }
+  ]
+}
