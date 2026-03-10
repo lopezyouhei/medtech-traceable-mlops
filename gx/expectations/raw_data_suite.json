@@ -1,7 +1,42 @@
 {
   "expectations": [
     {
-      "id": "d02bb94f-7010-4085-bd5e-d459b568a349",
+      "id": "fec8c4f0-1dc7-4480-b7ba-355979e9729a",
+      "kwargs": {
+        "value": 920
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_table_row_count_to_equal"
+    },
+    {
+      "id": "11da39d7-9ed8-407c-adf5-9ec4fa5a6b9c",
+      "kwargs": {
+        "column_set": [
+          "id",
+          "age",
+          "dataset",
+          "sex",
+          "cp",
+          "trestbps",
+          "chol",
+          "fbs",
+          "restecg",
+          "thalch",
+          "exang",
+          "oldpeak",
+          "slope",
+          "ca",
+          "thal",
+          "num"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_table_columns_to_match_set"
+    },
+    {
+      "id": "f1793115-8f9e-4721-9263-3703e9092151",
       "kwargs": {
         "column": "id"
       },
@@ -10,7 +45,7 @@
       "type": "expect_column_values_to_be_unique"
     }
   ],
-  "id": "acef9e34-5769-43bb-b51d-ac43d05f5cd5",
+  "id": "5eebb270-8972-4509-bc16-c4a2b70d9e6c",
   "meta": {
     "great_expectations_version": "1.14.0"
   },

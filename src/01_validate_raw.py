@@ -38,16 +38,49 @@ def run_raw_validation():
     validator = context.get_validator(batch=batch)
 
     # define raw data expectations
+    validator.expect_table_row_count_to_equal(value=920)
+    validator.expect_table_columns_to_match_set(
+        column_set=[
+            "id",
+            "age",
+            "dataset",
+            "sex",
+            "cp",
+            "trestbps",
+            "chol",
+            "fbs",
+            "restecg",
+            "thalch",
+            "exang",
+            "oldpeak",
+            "slope",
+            "ca",
+            "thal",
+            "num",
+        ]
+    )
+
     validator.expect_column_values_to_be_unique(column="id")
+
     # TODO: define other rules
 
     # save suite
     suite = validator.expectation_suite
     suite.name = "raw_data_suite"
+
+    # TODO: REMOVE AFTER TESTING PHASE
     try:
-        context.suites.add(suite)
+        context.suites.delete(suite.name)
     except Exception:
-        pass  # if it already exists on disk
+        pass
+    context.suites.add(suite)
+
+    # TODO: UNCOMMENT FOR PRODUCTION AND CREATE AUTHORING NOTEBOOK
+    #  try:
+    #     context.suites.add(suite)
+    # except Exception:
+    #     print("Suite not found! Did you run the authoring notebook first?")
+    #     sys.exit(1)
 
     # get or create validation definition
     val_def_name = "raw_data_val_def"
