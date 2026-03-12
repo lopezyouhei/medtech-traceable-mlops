@@ -80,7 +80,12 @@ def run_raw_validation():
 
     ## value checks
     validator.expect_column_values_to_be_unique(column="id")
-    
+    validator.expect_column_values_to_be_between(column="age", min_value=18, max_value=120)
+    validator.expect_column_values_to_be_in_set(column="sex", value_set=["Male", "Female"])
+    validator.expect_column_values_to_be_in_set(
+        column="dataset", 
+        value_set=['Cleveland', 'Hungary', 'Switzerland', 'VA Long Beach']
+    )
 
 
     # TODO: define other rules
