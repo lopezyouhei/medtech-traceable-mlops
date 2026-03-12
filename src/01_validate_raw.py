@@ -38,6 +38,7 @@ def run_raw_validation():
     validator = context.get_validator(batch=batch)
 
     # define raw data expectations
+    ## table properties
     validator.expect_table_row_count_to_equal(value=920)
     validator.expect_table_columns_to_match_set(
         column_set=[
@@ -59,8 +60,28 @@ def run_raw_validation():
             "num",
         ]
     )
+    ## type checks
+    validator.expect_column_values_to_be_of_type(column="id", type_="int64")
+    validator.expect_column_values_to_be_of_type(column="age", type_="int64")
+    validator.expect_column_values_to_be_of_type(column="sex", type_="string")
+    validator.expect_column_values_to_be_of_type(column="dataset", type_="string")
+    validator.expect_column_values_to_be_of_type(column="cp", type_="string")
+    validator.expect_column_values_to_be_of_type(column="trestbps", type_="float64")
+    validator.expect_column_values_to_be_of_type(column="chol", type_="float64")
+    validator.expect_column_values_to_be_of_type(column="fbs", type_="object")
+    validator.expect_column_values_to_be_of_type(column="restecg", type_="string")
+    validator.expect_column_values_to_be_of_type(column="thalch", type_="float64")
+    validator.expect_column_values_to_be_of_type(column="exang", type_="object")
+    validator.expect_column_values_to_be_of_type(column="oldpeak", type_="float64")
+    validator.expect_column_values_to_be_of_type(column="slope", type_="object")
+    validator.expect_column_values_to_be_of_type(column="ca", type_="float64")
+    validator.expect_column_values_to_be_of_type(column="thal", type_="string")
+    validator.expect_column_values_to_be_of_type(column="num", type_="int64")
 
+    ## value checks
     validator.expect_column_values_to_be_unique(column="id")
+    
+
 
     # TODO: define other rules
 
