@@ -129,19 +129,19 @@ def run_raw_validation():
     suite = validator.expectation_suite
     suite.name = "raw_data_suite"
 
-    # TODO: REMOVE AFTER TESTING PHASE
-    try:
-        context.suites.delete(suite.name)
-    except Exception:
-        pass
-    context.suites.add(suite)
+    # # TODO: REMOVE AFTER TESTING PHASE
+    # try:
+    #     context.suites.delete(suite.name)
+    # except Exception:
+    #     pass
+    # context.suites.add(suite)
 
     # TODO: UNCOMMENT FOR PRODUCTION AND CREATE AUTHORING NOTEBOOK
-    #  try:
-    #     context.suites.add(suite)
-    # except Exception:
-    #     print("Suite not found! Did you run the authoring notebook first?")
-    #     sys.exit(1)
+    try:
+        context.suites.get(suite.name)
+    except Exception:
+        print("Suite not found! Did you run the authoring notebook first?")
+        sys.exit(1)
 
     # get or create validation definition
     val_def_name = "raw_data_val_def"
