@@ -1,7 +1,7 @@
 {
   "expectations": [
     {
-      "id": "9ba834de-ac0d-4145-a1fc-7d1a385ab87b",
+      "id": "a97cbcc9-27fc-47d1-a524-b09d8416029f",
       "kwargs": {
         "value": 920
       },
@@ -10,7 +10,7 @@
       "type": "expect_table_row_count_to_equal"
     },
     {
-      "id": "f33618f5-4064-4c6e-a5f3-e518aaa3320a",
+      "id": "328eb876-c000-4989-8b0c-4d96686e4b2c",
       "kwargs": {
         "column_set": [
           "id",
@@ -36,7 +36,7 @@
       "type": "expect_table_columns_to_match_set"
     },
     {
-      "id": "16f6a8e5-b844-4988-a43b-3f8d96cf5c6a",
+      "id": "84188d87-e16f-4ed7-924f-d4cb9b2dbc9c",
       "kwargs": {
         "column": "id",
         "type_": "int64"
@@ -46,16 +46,368 @@
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "84b33947-3fa2-4560-9166-922ffabc3064",
+      "id": "11bc2fcd-6c6f-49dd-ab5e-7f7598ad8441",
+      "kwargs": {
+        "column": "age",
+        "type_": "int64"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "445dbe1b-1763-486a-96d3-64135f1ef8d3",
+      "kwargs": {
+        "column": "sex",
+        "type_": "object"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "de97c8a3-ea50-426c-970d-666db2b7a80c",
+      "kwargs": {
+        "column": "dataset",
+        "type_": "object"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "09462b79-d229-485d-98a9-9e41dc5b0b31",
+      "kwargs": {
+        "column": "cp",
+        "type_": "object"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "ddddbca4-abcc-4487-98df-1018fcee7658",
+      "kwargs": {
+        "column": "trestbps",
+        "type_": "float64"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "2bfd2379-8288-454b-b56a-5860f897a3fe",
+      "kwargs": {
+        "column": "chol",
+        "type_": "float64"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "8a879937-7a6e-47a9-9481-9d4d841b3cfc",
+      "kwargs": {
+        "column": "fbs",
+        "type_": "object"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "6ab11af2-663d-4501-9983-fa893b4d76dd",
+      "kwargs": {
+        "column": "restecg",
+        "type_": "object"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "113bf123-1168-4cbd-8dca-aa56742a92bf",
+      "kwargs": {
+        "column": "thalch",
+        "type_": "float64"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "a39a1caa-7d2b-4eb7-a2c3-629fe5c34355",
+      "kwargs": {
+        "column": "exang",
+        "type_": "object"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "490e4d79-027f-4124-8bf8-a2e62788a57d",
+      "kwargs": {
+        "column": "oldpeak",
+        "type_": "float64"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "9775d9e4-17e2-468b-8fba-eac8c44a97e1",
+      "kwargs": {
+        "column": "slope",
+        "type_": "object"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "5965a1b2-e96b-40ae-a3e7-1de2cbc42921",
+      "kwargs": {
+        "column": "ca",
+        "type_": "float64"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "8881b2a2-2f0b-41f9-ba7e-b6c8b0433219",
+      "kwargs": {
+        "column": "thal",
+        "type_": "object"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "5a7bec6a-b46f-4753-8fed-e7a0de266ffc",
+      "kwargs": {
+        "column": "num",
+        "type_": "int64"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "15f45e5f-2db3-400c-a603-cf64b339c64a",
       "kwargs": {
         "column": "id"
       },
       "meta": {},
       "severity": "critical",
       "type": "expect_column_values_to_be_unique"
+    },
+    {
+      "id": "ae708a31-f011-43dc-89a5-1e5eaab6f32d",
+      "kwargs": {
+        "column": "age",
+        "max_value": 120.0,
+        "min_value": 18.0,
+        "mostly": 0.95
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "003482b9-82f1-45f2-ba99-2e3b0b4f8124",
+      "kwargs": {
+        "column": "sex",
+        "value_set": [
+          "Male",
+          "Female"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "84879fe4-2858-4649-907a-afe5914638eb",
+      "kwargs": {
+        "column": "dataset",
+        "value_set": [
+          "Cleveland",
+          "Hungary",
+          "Switzerland",
+          "VA Long Beach"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "b85986fb-211b-4f32-936e-0cec5ea64c8c",
+      "kwargs": {
+        "column": "cp",
+        "value_set": [
+          "typical angina",
+          "asymptomatic",
+          "non-anginal",
+          "atypical angina"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "2af07662-6434-4af1-b798-a0aff6fac941",
+      "kwargs": {
+        "column": "trestbps",
+        "max_value": 200.0,
+        "min_value": 80.0,
+        "mostly": 0.95
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "dd9f7439-2d4e-449d-b492-b7b7a16fb9f2",
+      "kwargs": {
+        "column": "chol",
+        "max_value": 600.0,
+        "min_value": 100.0,
+        "mostly": 0.75
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "8281f210-f864-4a33-bd8a-518cd27c9355",
+      "kwargs": {
+        "column": "fbs",
+        "value_set": [
+          true,
+          false
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "1e6cf0f1-19cb-46ed-a578-9f1075de6612",
+      "kwargs": {
+        "column": "restecg",
+        "value_set": [
+          "lv hypertrophy",
+          "normal",
+          "st-t abnormality"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "fa1a55d8-26b1-465a-9ac4-e9002a409ead",
+      "kwargs": {
+        "column": "thalch",
+        "max_value": 220.0,
+        "min_value": 60.0,
+        "mostly": 0.95
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "6d70c105-d56d-420d-bcbb-f055f91aa7d6",
+      "kwargs": {
+        "column": "exang",
+        "value_set": [
+          true,
+          false
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "172ab433-3b9f-47b6-95b9-417d06beee47",
+      "kwargs": {
+        "column": "oldpeak",
+        "max_value": 10.0,
+        "min_value": -3.0,
+        "mostly": 0.95
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "f032fa1f-ca52-4bc8-8597-22745d72372d",
+      "kwargs": {
+        "column": "slope",
+        "value_set": [
+          "downsloping",
+          "flat",
+          "upsloping"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "b7dc0b1a-e432-44fe-a28b-c68c51652668",
+      "kwargs": {
+        "column": "ca",
+        "value_set": [
+          0.0,
+          1.0,
+          2.0,
+          3.0
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "af52a160-0d1a-4026-a475-de53e38b1bb8",
+      "kwargs": {
+        "column": "thal",
+        "value_set": [
+          "fixed defect",
+          "normal",
+          "reversable defect"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "79d37ce7-ba09-41fe-b4bb-1fdf5665728b",
+      "kwargs": {
+        "column": "num",
+        "value_set": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
     }
   ],
-  "id": "59c341c0-b47c-46a2-a31f-a5fae1a32263",
+  "id": "cd486ad1-c7a5-44d5-aefa-631ed70ed866",
   "meta": {
     "great_expectations_version": "1.14.0"
   },

@@ -80,15 +80,47 @@ def run_raw_validation():
 
     ## value checks
     validator.expect_column_values_to_be_unique(column="id")
-    validator.expect_column_values_to_be_between(column="age", min_value=18, max_value=120)
-    validator.expect_column_values_to_be_in_set(column="sex", value_set=["Male", "Female"])
-    validator.expect_column_values_to_be_in_set(
-        column="dataset", 
-        value_set=['Cleveland', 'Hungary', 'Switzerland', 'VA Long Beach']
+    validator.expect_column_values_to_be_between(
+        column="age", min_value=18, max_value=120, mostly=0.95
     )
-
-
-    # TODO: define other rules
+    validator.expect_column_values_to_be_in_set(
+        column="sex", value_set=["Male", "Female"]
+    )
+    validator.expect_column_values_to_be_in_set(
+        column="dataset",
+        value_set=["Cleveland", "Hungary", "Switzerland", "VA Long Beach"],
+    )
+    validator.expect_column_values_to_be_in_set(
+        column="cp",
+        value_set=["typical angina", "asymptomatic", "non-anginal", "atypical angina"],
+    )
+    validator.expect_column_values_to_be_between(
+        column="trestbps", min_value=80, max_value=200, mostly=0.95
+    )
+    validator.expect_column_values_to_be_between(
+        column="chol", min_value=100, max_value=600, mostly=0.75
+    )
+    validator.expect_column_values_to_be_in_set(column="fbs", value_set=[True, False])
+    validator.expect_column_values_to_be_in_set(
+        column="restecg", value_set=["lv hypertrophy", "normal", "st-t abnormality"]
+    )
+    validator.expect_column_values_to_be_between(
+        column="thalch", min_value=60, max_value=220, mostly=0.95
+    )
+    validator.expect_column_values_to_be_in_set(column="exang", value_set=[True, False])
+    validator.expect_column_values_to_be_between(
+        column="oldpeak", min_value=-3, max_value=10, mostly=0.95
+    )
+    validator.expect_column_values_to_be_in_set(
+        column="slope", value_set=["downsloping", "flat", "upsloping"]
+    )
+    validator.expect_column_values_to_be_in_set(
+        column="ca", value_set=[0.0, 1.0, 2.0, 3.0]
+    )
+    validator.expect_column_values_to_be_in_set(
+        column="thal", value_set=["fixed defect", "normal", "reversable defect"]
+    )
+    validator.expect_column_values_to_be_in_set(column="num", value_set=[0, 1, 2, 3, 4])
 
     # save suite
     suite = validator.expectation_suite
