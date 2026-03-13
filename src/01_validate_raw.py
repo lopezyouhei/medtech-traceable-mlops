@@ -1,3 +1,4 @@
+# TODO: use logging for the print statements to make it automation-ready
 import subprocess
 import sys
 from pathlib import Path
