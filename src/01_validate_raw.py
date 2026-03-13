@@ -1,13 +1,15 @@
+import subprocess
 import sys
 from pathlib import Path
 
 import great_expectations as gx
 import pandas as pd
+import yaml
 
 
 def run_raw_validation():
     # load data
-    raw_data_path = "data/raw/heart_disease_uci.csv"
+    raw_data_path = Path("data/raw/heart_disease_uci.csv")
     df = pd.read_csv(raw_data_path)
 
     # initialize gx context
@@ -163,8 +165,27 @@ def run_raw_validation():
         )
         context.checkpoints.add(checkpoint)
 
+    # get dvc and git hash
+    dvc_file_path = raw_data_path.with_name(raw_data_path.name + ".dvc")
+    try:
+        with open(dvc_file_path, "r") as f:
+            dvc_metadata = yaml.safe_load(f)
+            dvc_hash = dvc_metadata["outs"][0].get("md5")[:8]
+    except FileNotFoundError:
+        print(f"Warning: DVC file not found at {dvc_file_path}. Using a default hash.")
+        dvc_hash = f"untracked_{raw_data_path.name}"
+
+    git_hash = (
+        subprocess.check_output(["git", "rev-parse", "--short", "HEAD"])
+        .decode("ascii")
+        .strip()
+    )
+
+    # add git and dvc hash for data traceability
+    run_id = gx.RunIdentifier(run_name=f"dvc_{dvc_hash}_git_{git_hash}")
+
     # run and report
-    results = checkpoint.run(batch_parameters={"dataframe": df})
+    results = checkpoint.run(batch_parameters={"dataframe": df}, run_id=run_id)
     context.build_data_docs()
     docs_url = context.get_docs_sites_urls()[0]["site_url"]
     print(f"View report at: {docs_url}")
