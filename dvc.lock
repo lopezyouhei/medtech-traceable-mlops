@@ -1,0 +1,37 @@
+schema: '2.0'
+stages:
+  validate_raw:
+    cmd: python src/01_validate_raw.py
+    deps:
+    - path: data/raw/heart_disease_uci.csv
+      hash: md5
+      md5: bde77728726675cb665f948df8ade988
+      size: 79346
+    - path: src/01_validate_raw.py
+      hash: md5
+      md5: 9bb6ab91f46c6c64846a0493228d0345
+      size: 7892
+  preprocess:
+    cmd: python src/02_preprocess.py
+    deps:
+    - path: data/raw/heart_disease_uci.csv
+      hash: md5
+      md5: bde77728726675cb665f948df8ade988
+      size: 79346
+    - path: src/02_preprocess.py
+      hash: md5
+      md5: a012a48337e17bc29a04195ec520485a
+      size: 4174
+    outs:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 43a217d2a8b92f7f8ea9cdf5b875bcf4
+      size: 34376
+    - path: data/processed/train.csv
+      hash: md5
+      md5: 02386edd042e3623c279a61aa8c0625b
+      size: 136466
+    - path: models/preprocessor.joblib
+      hash: md5
+      md5: cbe5308526ee0c1161067f1a22a4d0ee
+      size: 5100
