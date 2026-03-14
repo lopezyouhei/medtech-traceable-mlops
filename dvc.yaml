@@ -1,0 +1,16 @@
+stages:
+  validate_raw:
+    cmd: python src/01_validate_raw.py
+    deps:
+      - src/01_validate_raw.py
+      - data/raw/heart_disease_uci.csv
+  
+  preprocess:
+    cmd: python src/02_preprocess.py
+    deps:
+      - src/02_preprocess.py
+      - data/raw/heart_disease_uci.csv
+    outs:
+      - data/processed/train.csv
+      - data/processed/test.csv
+      - models/preprocessor.joblib
