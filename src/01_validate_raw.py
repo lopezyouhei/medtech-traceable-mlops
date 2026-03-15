@@ -8,7 +8,7 @@ import great_expectations as gx
 import pandas as pd
 import yaml
 
-from data_contract import (
+from config.data_contract import (
     CATEGORICAL_SETS,
     EXPECTED_TYPES,
     NUMERICAL_BOUNDS,
