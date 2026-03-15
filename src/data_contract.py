@@ -102,3 +102,22 @@ CATEGORICAL_SETS = {
     FeatureNames.THAL: [e.value for e in ThalCategories],
     FeatureNames.NUM: [e.value for e in NumCategories],
 }
+
+EXPECTED_TYPES = {
+    FeatureNames.ID: "int64",
+    FeatureNames.AGE: "int64",
+    FeatureNames.SEX: "string",
+    FeatureNames.DATASET: "string",
+    FeatureNames.CP: "string",
+    FeatureNames.TRESTBPS: "float64",
+    FeatureNames.CHOL: "float64",
+    FeatureNames.FBS: "bool",
+    FeatureNames.RESTECG: "string",
+    FeatureNames.THALCH: "float64",
+    FeatureNames.EXANG: "bool",
+    FeatureNames.OLDPEAK: "float64",
+    FeatureNames.SLOPE: "string",
+    FeatureNames.CA: "float64",
+    FeatureNames.THAL: "string",
+    FeatureNames.NUM: "int64",
+}
