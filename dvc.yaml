@@ -5,12 +5,36 @@ stages:
       - src/01_validate_raw.py
       - data/raw/heart_disease_uci.csv
   
-  preprocess:
-    cmd: python src/02_preprocess.py
+  clean_raw:
+    cmd: python src/02_clean_raw.py
     deps:
-      - src/02_preprocess.py
+      - src/02_clean_raw.py
       - data/raw/heart_disease_uci.csv
     outs:
-      - data/processed/train.csv
-      - data/processed/test.csv
+      - data/cleaned/heart_disease_uci_cleaned.csv
+  
+  validate_cleaned:
+    cmd: python src/03_validate_cleaned.py
+    deps:
+      - src/03_validate_cleaned.py
+      - data/cleaned/heart_disease_uci_cleaned.csv
+  
+  preprocess:
+    cmd: python src/04_preprocess.py
+    deps:
+      - src/04_preprocess.py
+      - data/cleaned/heart_disease_uci_cleaned.csv
+    outs:
+      - data/preprocessed/train.csv
+      - data/preprocessed/test.csv
       - models/preprocessor.joblib
+  
+  validate_preprocessed:
+    cmd: python src/05_validate_preprocessed.py
+    deps:
+      - src/05_validate_preprocessed.py
+      - data/preprocessed/train.csv
+      - data/preprocessed/test.csv
+  
+  train_model:
+    cmd: python src/06_train_model.py
