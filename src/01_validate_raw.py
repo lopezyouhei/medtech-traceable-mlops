@@ -1,4 +1,5 @@
 # TODO: use logging for the print statements to make it automation-ready
+import logging
 import subprocess
 import sys
 from pathlib import Path
@@ -7,11 +8,23 @@ import great_expectations as gx
 import pandas as pd
 import yaml
 
+from data_contract import (
+    CATEGORICAL_SETS,
+    EXPECTED_TYPES,
+    NUMERICAL_BOUNDS,
+    FeatureNames,
+)
+
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger(__name__)
+
 
 def run_raw_validation():
-    # load data
+    # load data and enforce expected dtypes
     raw_data_path = Path("data/raw/heart_disease_uci.csv")
-    df = pd.read_csv(raw_data_path)
+    df = pd.read_csv(raw_data_path, dtype=EXPECTED_TYPES)
 
     # initialize gx context
     gx_path = Path.cwd() / "gx"
@@ -44,86 +57,87 @@ def run_raw_validation():
     ## table properties
     validator.expect_table_row_count_to_equal(value=920)
     validator.expect_table_columns_to_match_set(
-        column_set=[
-            "id",
-            "age",
-            "dataset",
-            "sex",
-            "cp",
-            "trestbps",
-            "chol",
-            "fbs",
-            "restecg",
-            "thalch",
-            "exang",
-            "oldpeak",
-            "slope",
-            "ca",
-            "thal",
-            "num",
-        ]
+        column_set=CATEGORICAL_SETS["BRONZE_COLUMN_NAMES"]
     )
     ## type checks
-    validator.expect_column_values_to_be_of_type(column="id", type_="int64")
-    validator.expect_column_values_to_be_of_type(column="age", type_="int64")
-    validator.expect_column_values_to_be_of_type(column="sex", type_="object")
-    validator.expect_column_values_to_be_of_type(column="dataset", type_="object")
-    validator.expect_column_values_to_be_of_type(column="cp", type_="object")
-    validator.expect_column_values_to_be_of_type(column="trestbps", type_="float64")
-    validator.expect_column_values_to_be_of_type(column="chol", type_="float64")
-    validator.expect_column_values_to_be_of_type(column="fbs", type_="object")
-    validator.expect_column_values_to_be_of_type(column="restecg", type_="object")
-    validator.expect_column_values_to_be_of_type(column="thalch", type_="float64")
-    validator.expect_column_values_to_be_of_type(column="exang", type_="object")
-    validator.expect_column_values_to_be_of_type(column="oldpeak", type_="float64")
-    validator.expect_column_values_to_be_of_type(column="slope", type_="object")
-    validator.expect_column_values_to_be_of_type(column="ca", type_="float64")
-    validator.expect_column_values_to_be_of_type(column="thal", type_="object")
-    validator.expect_column_values_to_be_of_type(column="num", type_="int64")
+    for feature, expected_type in EXPECTED_TYPES.items():
+        if expected_type in ["Int64", "Float64"]:
+            gx_type = expected_type.lower()
+        elif expected_type == "boolean":
+            gx_type = "bool"
+        elif expected_type == "string":
+            gx_type = "str"
+        else:
+            gx_type = expected_type
+
+        validator.expect_column_values_to_be_of_type(
+            column=feature.value, type_=gx_type
+        )
 
     ## value checks
-    validator.expect_column_values_to_be_unique(column="id")
+    validator.expect_column_values_to_be_unique(column=FeatureNames.ID.value)
     validator.expect_column_values_to_be_between(
-        column="age", min_value=18, max_value=120, mostly=0.95
+        column=FeatureNames.AGE.value,
+        min_value=NUMERICAL_BOUNDS[FeatureNames.AGE]["min_value"],
+        max_value=NUMERICAL_BOUNDS[FeatureNames.AGE]["max_value"],
+        mostly=0.95,
     )
     validator.expect_column_values_to_be_in_set(
-        column="sex", value_set=["Male", "Female"]
+        column=FeatureNames.SEX.value, value_set=CATEGORICAL_SETS[FeatureNames.SEX]
     )
     validator.expect_column_values_to_be_in_set(
-        column="dataset",
-        value_set=["Cleveland", "Hungary", "Switzerland", "VA Long Beach"],
+        column=FeatureNames.DATASET.value,
+        value_set=CATEGORICAL_SETS[FeatureNames.DATASET],
     )
     validator.expect_column_values_to_be_in_set(
-        column="cp",
-        value_set=["typical angina", "asymptomatic", "non-anginal", "atypical angina"],
-    )
-    validator.expect_column_values_to_be_between(
-        column="trestbps", min_value=80, max_value=200, mostly=0.95
-    )
-    validator.expect_column_values_to_be_between(
-        column="chol", min_value=100, max_value=600, mostly=0.75
-    )
-    validator.expect_column_values_to_be_in_set(column="fbs", value_set=[True, False])
-    validator.expect_column_values_to_be_in_set(
-        column="restecg", value_set=["lv hypertrophy", "normal", "st-t abnormality"]
+        column=FeatureNames.CP.value, value_set=CATEGORICAL_SETS[FeatureNames.CP]
     )
     validator.expect_column_values_to_be_between(
-        column="thalch", min_value=60, max_value=220, mostly=0.95
+        column=FeatureNames.TRESTBPS.value,
+        min_value=NUMERICAL_BOUNDS[FeatureNames.TRESTBPS]["min_value"],
+        max_value=NUMERICAL_BOUNDS[FeatureNames.TRESTBPS]["max_value"],
+        mostly=0.95,
     )
-    validator.expect_column_values_to_be_in_set(column="exang", value_set=[True, False])
     validator.expect_column_values_to_be_between(
-        column="oldpeak", min_value=-3, max_value=10, mostly=0.95
+        column=FeatureNames.CHOL.value,
+        min_value=NUMERICAL_BOUNDS[FeatureNames.CHOL]["min_value"],
+        max_value=NUMERICAL_BOUNDS[FeatureNames.CHOL]["max_value"],
+        mostly=0.75,
     )
     validator.expect_column_values_to_be_in_set(
-        column="slope", value_set=["downsloping", "flat", "upsloping"]
+        column=FeatureNames.FBS.value, value_set=CATEGORICAL_SETS[FeatureNames.FBS]
     )
     validator.expect_column_values_to_be_in_set(
-        column="ca", value_set=[0.0, 1.0, 2.0, 3.0]
+        column=FeatureNames.RESTECG.value,
+        value_set=CATEGORICAL_SETS[FeatureNames.RESTECG],
+    )
+    validator.expect_column_values_to_be_between(
+        column=FeatureNames.THALCH.value,
+        min_value=NUMERICAL_BOUNDS[FeatureNames.THALCH]["min_value"],
+        max_value=NUMERICAL_BOUNDS[FeatureNames.THALCH]["max_value"],
+        mostly=0.95,
     )
     validator.expect_column_values_to_be_in_set(
-        column="thal", value_set=["fixed defect", "normal", "reversable defect"]
+        column=FeatureNames.EXANG.value, value_set=CATEGORICAL_SETS[FeatureNames.EXANG]
     )
-    validator.expect_column_values_to_be_in_set(column="num", value_set=[0, 1, 2, 3, 4])
+    validator.expect_column_values_to_be_between(
+        column=FeatureNames.OLDPEAK.value,
+        min_value=NUMERICAL_BOUNDS[FeatureNames.OLDPEAK]["min_value"],
+        max_value=NUMERICAL_BOUNDS[FeatureNames.OLDPEAK]["max_value"],
+        mostly=0.95,
+    )
+    validator.expect_column_values_to_be_in_set(
+        column=FeatureNames.SLOPE.value, value_set=CATEGORICAL_SETS[FeatureNames.SLOPE]
+    )
+    validator.expect_column_values_to_be_in_set(
+        column=FeatureNames.CA.value, value_set=CATEGORICAL_SETS[FeatureNames.CA]
+    )
+    validator.expect_column_values_to_be_in_set(
+        column=FeatureNames.THAL.value, value_set=CATEGORICAL_SETS[FeatureNames.THAL]
+    )
+    validator.expect_column_values_to_be_in_set(
+        column=FeatureNames.NUM.value, value_set=CATEGORICAL_SETS[FeatureNames.NUM]
+    )
 
     # save suite
     suite = validator.expectation_suite

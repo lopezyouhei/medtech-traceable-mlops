@@ -1,7 +1,7 @@
 {
   "expectations": [
     {
-      "id": "7b492006-34b9-4350-afa9-da134c96ec40",
+      "id": "f15a52c1-0bec-4c7a-b421-37c1ce96e2b5",
       "kwargs": {
         "value": 920
       },
@@ -10,7 +10,7 @@
       "type": "expect_table_row_count_to_equal"
     },
     {
-      "id": "eaa44d45-c372-478c-b7fd-1c1e55273c74",
+      "id": "db4deb68-4f4f-42ac-8c7d-cb166cd322db",
       "kwargs": {
         "column_set": [
           "id",
@@ -36,7 +36,7 @@
       "type": "expect_table_columns_to_match_set"
     },
     {
-      "id": "c97370c4-30ca-41e0-a0d6-cfc490276f77",
+      "id": "085d4ffc-86a9-47df-8358-cb10cb2cca63",
       "kwargs": {
         "column": "id",
         "type_": "int64"
@@ -46,7 +46,7 @@
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "aba33767-e28b-4da8-bd89-76610b1a8d9d",
+      "id": "e6e51e07-8fd3-4280-90b9-774bf708daec",
       "kwargs": {
         "column": "age",
         "type_": "int64"
@@ -56,37 +56,37 @@
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "0842a18e-7708-4991-9930-9ba395f97fac",
+      "id": "c6016a76-f72f-45b3-86b6-7494dc8b2c94",
       "kwargs": {
         "column": "sex",
-        "type_": "object"
+        "type_": "str"
       },
       "meta": {},
       "severity": "critical",
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "49b4a5d6-16fc-4c94-a498-13f79c91d927",
+      "id": "ef5460f4-b274-440c-bd17-84ff16e00f5e",
       "kwargs": {
         "column": "dataset",
-        "type_": "object"
+        "type_": "str"
       },
       "meta": {},
       "severity": "critical",
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "5be22bf5-fa43-4e2b-ac5f-9921f29dd8c2",
+      "id": "801378fe-014c-4fdb-be17-c714594f90f2",
       "kwargs": {
         "column": "cp",
-        "type_": "object"
+        "type_": "str"
       },
       "meta": {},
       "severity": "critical",
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "6df44fef-327a-4a37-b489-24f3b3406a76",
+      "id": "1380cc28-ae57-4d0f-bf03-6af73bb8b7f3",
       "kwargs": {
         "column": "trestbps",
         "type_": "float64"
@@ -96,7 +96,7 @@
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "a1af22f0-70bc-4781-a716-45acc0fe7486",
+      "id": "d39b7943-9fd1-4a84-a61f-7056d178509d",
       "kwargs": {
         "column": "chol",
         "type_": "float64"
@@ -106,27 +106,27 @@
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "8cd52c3b-64a7-416d-b732-2c4bac143545",
+      "id": "25873978-a921-477b-a4d4-5016937ef64f",
       "kwargs": {
         "column": "fbs",
-        "type_": "object"
+        "type_": "bool"
       },
       "meta": {},
       "severity": "critical",
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "a5ec6d97-69aa-4e50-9d8d-34693dc74c3e",
+      "id": "3e447846-4457-4d6a-b97f-9d63577649a7",
       "kwargs": {
         "column": "restecg",
-        "type_": "object"
+        "type_": "str"
       },
       "meta": {},
       "severity": "critical",
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "0e827a34-1eaa-4b97-a493-fe5bfe07414e",
+      "id": "1c60a499-4f10-4e6b-bc1c-8cef02d57688",
       "kwargs": {
         "column": "thalch",
         "type_": "float64"
@@ -136,17 +136,17 @@
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "13e3c307-0c2a-4a97-ab3d-d99158f86cef",
+      "id": "15e5b2bd-dcdc-4516-8412-33a57e7d7832",
       "kwargs": {
         "column": "exang",
-        "type_": "object"
+        "type_": "bool"
       },
       "meta": {},
       "severity": "critical",
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "2546f03e-321d-4aca-9fb7-96da88c0e05b",
+      "id": "c3b2aeb3-6091-4023-ad66-e6a09d0e1d45",
       "kwargs": {
         "column": "oldpeak",
         "type_": "float64"
@@ -156,17 +156,17 @@
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "7a31de8f-aab6-4a6d-a9a9-e67870ede7a3",
+      "id": "31a651a0-791d-44a7-b02d-b533e16f27c3",
       "kwargs": {
         "column": "slope",
-        "type_": "object"
+        "type_": "str"
       },
       "meta": {},
       "severity": "critical",
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "5ad27e1e-ec58-4767-bec0-8b142816f97a",
+      "id": "e14bde6f-5d45-4fb7-af1f-dea04a327ba2",
       "kwargs": {
         "column": "ca",
         "type_": "float64"
@@ -176,17 +176,17 @@
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "04115282-2509-4da7-8f3a-662219a7af47",
+      "id": "e1756874-2f2e-4912-a666-d9076cb2b61b",
       "kwargs": {
         "column": "thal",
-        "type_": "object"
+        "type_": "str"
       },
       "meta": {},
       "severity": "critical",
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "09fae610-5de0-4211-b2ee-443b973c65e4",
+      "id": "e0b54c78-f206-4492-a07a-88fd07b79de4",
       "kwargs": {
         "column": "num",
         "type_": "int64"
@@ -196,7 +196,7 @@
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "9e531a9e-5674-4517-afc3-3c93c7024023",
+      "id": "a4398612-f3d6-46d1-86d9-1ef766a0901d",
       "kwargs": {
         "column": "id"
       },
@@ -205,7 +205,7 @@
       "type": "expect_column_values_to_be_unique"
     },
     {
-      "id": "3dd4c95a-7b02-4ac8-bdaf-6fdb993e573b",
+      "id": "2e449dff-7c9d-4e1f-be50-34175aebf755",
       "kwargs": {
         "column": "age",
         "max_value": 120.0,
@@ -217,7 +217,7 @@
       "type": "expect_column_values_to_be_between"
     },
     {
-      "id": "93d90d02-251a-486d-bc5d-a0d590f6ac9a",
+      "id": "2b49b1e1-2b4a-43a9-9287-71f3c81f4edf",
       "kwargs": {
         "column": "sex",
         "value_set": [
@@ -230,7 +230,7 @@
       "type": "expect_column_values_to_be_in_set"
     },
     {
-      "id": "8b72461d-28e1-4165-97e6-681cd2e9959a",
+      "id": "dd2206e9-9345-4d83-be1f-0a11312343dc",
       "kwargs": {
         "column": "dataset",
         "value_set": [
@@ -245,7 +245,7 @@
       "type": "expect_column_values_to_be_in_set"
     },
     {
-      "id": "6dcb430f-f262-4632-80e7-9f580a5aed5b",
+      "id": "666ef693-bace-4ab0-bc21-c363e382bb19",
       "kwargs": {
         "column": "cp",
         "value_set": [
@@ -260,7 +260,7 @@
       "type": "expect_column_values_to_be_in_set"
     },
     {
-      "id": "9b1f6dc0-50d1-4cf3-874f-0f68af0145a7",
+      "id": "7be736ed-812e-4bc0-87f9-b544baa7d52f",
       "kwargs": {
         "column": "trestbps",
         "max_value": 200.0,
@@ -272,7 +272,7 @@
       "type": "expect_column_values_to_be_between"
     },
     {
-      "id": "66193ca3-e6e7-45d7-a567-c6ad2acd6172",
+      "id": "98b612e9-06e3-404e-8f2a-f0a30116e37d",
       "kwargs": {
         "column": "chol",
         "max_value": 600.0,
@@ -284,7 +284,7 @@
       "type": "expect_column_values_to_be_between"
     },
     {
-      "id": "42f286d0-f0ba-4de0-8671-fb61f68a56c8",
+      "id": "e15df978-8377-439e-8c4c-655164a3c89f",
       "kwargs": {
         "column": "fbs",
         "value_set": [
@@ -297,7 +297,7 @@
       "type": "expect_column_values_to_be_in_set"
     },
     {
-      "id": "7d888823-ca70-473c-901b-ae9add6a8bd1",
+      "id": "9678e9f2-8822-4432-a212-eab90c30715d",
       "kwargs": {
         "column": "restecg",
         "value_set": [
@@ -311,7 +311,7 @@
       "type": "expect_column_values_to_be_in_set"
     },
     {
-      "id": "366d0a23-0dae-4d1c-9d1b-d4bdb7ebf2bd",
+      "id": "f5e3650e-2fc6-4487-9afe-0fb840836378",
       "kwargs": {
         "column": "thalch",
         "max_value": 220.0,
@@ -323,7 +323,7 @@
       "type": "expect_column_values_to_be_between"
     },
     {
-      "id": "82c14b31-947d-4e94-a803-3ed1d3b9c437",
+      "id": "b9d558dc-2fa1-4f6f-b1fb-f9e19126d0c7",
       "kwargs": {
         "column": "exang",
         "value_set": [
@@ -336,7 +336,7 @@
       "type": "expect_column_values_to_be_in_set"
     },
     {
-      "id": "3d45a7df-94ef-4f49-bed4-be93e7afe136",
+      "id": "61119eff-5e75-46bf-a0da-a0e5a1e5e360",
       "kwargs": {
         "column": "oldpeak",
         "max_value": 10.0,
@@ -348,7 +348,7 @@
       "type": "expect_column_values_to_be_between"
     },
     {
-      "id": "5098c342-afb2-4610-bfc1-c3480161b849",
+      "id": "abd32524-02e4-4336-9a8e-963e278c25b8",
       "kwargs": {
         "column": "slope",
         "value_set": [
@@ -362,7 +362,7 @@
       "type": "expect_column_values_to_be_in_set"
     },
     {
-      "id": "cf86735c-19f3-4097-8ab7-2e23c75e98f1",
+      "id": "a9e4af5b-4e49-4a63-a7c2-c2b266df6b97",
       "kwargs": {
         "column": "ca",
         "value_set": [
@@ -377,7 +377,7 @@
       "type": "expect_column_values_to_be_in_set"
     },
     {
-      "id": "a808d52b-a5c2-4089-b441-2661f87fe62e",
+      "id": "ff19ef83-314f-4bde-bd9e-5bbebdd64070",
       "kwargs": {
         "column": "thal",
         "value_set": [
@@ -391,7 +391,7 @@
       "type": "expect_column_values_to_be_in_set"
     },
     {
-      "id": "7c86b22a-51fa-47da-bad2-8227d9a4a6e4",
+      "id": "36654fe9-11f0-473b-b47a-863aff571e01",
       "kwargs": {
         "column": "num",
         "value_set": [
@@ -407,7 +407,7 @@
       "type": "expect_column_values_to_be_in_set"
     }
   ],
-  "id": "03ce3c82-6f8b-4850-a0b0-1f828bc7b012",
+  "id": "13b48b43-f4ec-46f6-a6b3-0dc195278de6",
   "meta": {
     "great_expectations_version": "1.14.0"
   },
