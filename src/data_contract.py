@@ -39,20 +39,10 @@ class CPCategories(str, Enum):
     ATYPICAL_ANGINA = "atypical angina"
 
 
-class FBSCategories(bool, Enum):
-    TRUE = True
-    FALSE = False
-
-
 class RestECGCategories(str, Enum):
     LV_HYPERTROPHY = "lv hypertrophy"
     NORMAL = "normal"
     STT_ABNORMALITY = "st-t abnormality"
-
-
-class ExangCategories(bool, Enum):
-    TRUE = True
-    FALSE = False
 
 
 class SlopeCategories(str, Enum):
@@ -91,12 +81,13 @@ NUMERICAL_BOUNDS = {
 }
 
 CATEGORICAL_SETS = {
+    "BRONZE_COLUMN_NAMES": [e.value for e in FeatureNames],
     FeatureNames.SEX: [e.value for e in SexCategories],
     FeatureNames.DATASET: [e.value for e in DatasetCategories],
     FeatureNames.CP: [e.value for e in CPCategories],
-    FeatureNames.FBS: [e.value for e in FBSCategories],
+    FeatureNames.FBS: [True, False],
     FeatureNames.RESTECG: [e.value for e in RestECGCategories],
-    FeatureNames.EXANG: [e.value for e in ExangCategories],
+    FeatureNames.EXANG: [True, False],
     FeatureNames.SLOPE: [e.value for e in SlopeCategories],
     FeatureNames.CA: [e.value for e in CACategories],
     FeatureNames.THAL: [e.value for e in ThalCategories],
@@ -104,20 +95,20 @@ CATEGORICAL_SETS = {
 }
 
 EXPECTED_TYPES = {
-    FeatureNames.ID: "int64",
-    FeatureNames.AGE: "int64",
+    FeatureNames.ID: "Int64",
+    FeatureNames.AGE: "Int64",
     FeatureNames.SEX: "string",
     FeatureNames.DATASET: "string",
     FeatureNames.CP: "string",
-    FeatureNames.TRESTBPS: "float64",
-    FeatureNames.CHOL: "float64",
-    FeatureNames.FBS: "bool",
+    FeatureNames.TRESTBPS: "Float64",
+    FeatureNames.CHOL: "Float64",
+    FeatureNames.FBS: "boolean",
     FeatureNames.RESTECG: "string",
-    FeatureNames.THALCH: "float64",
-    FeatureNames.EXANG: "bool",
-    FeatureNames.OLDPEAK: "float64",
+    FeatureNames.THALCH: "Float64",
+    FeatureNames.EXANG: "boolean",
+    FeatureNames.OLDPEAK: "Float64",
     FeatureNames.SLOPE: "string",
-    FeatureNames.CA: "float64",
+    FeatureNames.CA: "Float64",
     FeatureNames.THAL: "string",
-    FeatureNames.NUM: "int64",
+    FeatureNames.NUM: "Int64",
 }
