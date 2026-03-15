@@ -14,10 +14,9 @@ from config.data_contract import (
     NUMERICAL_BOUNDS,
     FeatureNames,
 )
+from config.logging_config import LogLevel
 
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
-)
+logging.basicConfig(level=logging.INFO, format=LogLevel.FORMAT.value)
 logger = logging.getLogger(__name__)
 
 
