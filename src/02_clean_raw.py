@@ -6,7 +6,7 @@ import yaml
 
 from config.data_contract import (
     CATEGORICAL_SETS,
-    EXPECTED_TYPES,
+    EXPECTED_SILVER_TYPES,
     NUMERICAL_BOUNDS,
     FeatureNames,
 )
@@ -34,7 +34,7 @@ def run_clean_raw():
         logger.warning(f"DVC file not found at {dvc_file_path}. Using a default hash.")
         dvc_hash = f"untracked_{raw_data_path.name}"
     logger.info(f"Loading raw data from {raw_data_path} with hash {dvc_hash}.")
-    df = pd.read_csv(raw_data_path, dtype=EXPECTED_TYPES)
+    df = pd.read_csv(raw_data_path, dtype=EXPECTED_SILVER_TYPES)
 
     # clean data according to data contract rules
     logger.info("Cleaning data according to data contract rules.")
@@ -56,9 +56,7 @@ def run_clean_raw():
         df = df[mask]
 
     logger.info(f"Binazing {FeatureNames.NUM.value} column.")
-    df[FeatureNames.NUM.value] = (
-        df[FeatureNames.NUM.value].apply(lambda x: 1 if x > 0 else 0).astype("Int64")
-    )
+    df[FeatureNames.NUM.value] = (df[FeatureNames.NUM.value] > 0).astype("Int64")
 
     logger.info(f"Saving cleaned data to {cleaned_data_path}.")
     df.to_csv(cleaned_data_path, index=False)
