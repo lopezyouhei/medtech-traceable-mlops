@@ -9,8 +9,8 @@ stages:
       size: 79346
     - path: src/01_validate_raw.py
       hash: md5
-      md5: 2a089bfe4d7196498f6b838fc179f7b2
-      size: 8033
+      md5: d893cc382e650a8a7474cee24b13f3bb
+      size: 8054
   preprocess:
     cmd: python src/02_preprocess.py
     deps:
@@ -44,8 +44,8 @@ stages:
       size: 79346
     - path: src/02_clean_raw.py
       hash: md5
-      md5: 284274015a4d1cbefd2ed3d06dbb005f
-      size: 2504
+      md5: 8a11bebc73d2099ca4067cfb429fc10e
+      size: 2471
     outs:
     - path: data/cleaned/heart_disease_uci_cleaned.csv
       hash: md5
