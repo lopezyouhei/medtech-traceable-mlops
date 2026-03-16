@@ -10,7 +10,7 @@ import yaml
 
 from config.data_contract import (
     CATEGORICAL_SETS,
-    EXPECTED_TYPES,
+    EXPECTED_BRONZE_TYPES,
     NUMERICAL_BOUNDS,
     FeatureNames,
 )
@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 def run_raw_validation():
     # load data and enforce expected dtypes
     raw_data_path = Path("data/raw/heart_disease_uci.csv")
-    df = pd.read_csv(raw_data_path, dtype=EXPECTED_TYPES)
+    df = pd.read_csv(raw_data_path, dtype=EXPECTED_BRONZE_TYPES)
 
     # initialize gx context
     gx_path = Path.cwd() / "gx"
@@ -59,7 +59,7 @@ def run_raw_validation():
         column_set=CATEGORICAL_SETS["BRONZE_COLUMN_NAMES"]
     )
     ## type checks
-    for feature, expected_type in EXPECTED_TYPES.items():
+    for feature, expected_type in EXPECTED_BRONZE_TYPES.items():
         if expected_type in ["Int64", "Float64"]:
             gx_type = expected_type.lower()
         elif expected_type == "boolean":
