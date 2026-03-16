@@ -97,11 +97,29 @@ CATEGORICAL_SETS = {
     FeatureNames.NUM: [e.value for e in NumCategories],
 }
 
-EXPECTED_TYPES = {
+EXPECTED_BRONZE_TYPES = {
     FeatureNames.ID: "Int64",
     FeatureNames.AGE: "Int64",
     FeatureNames.SEX: "string",
     FeatureNames.DATASET: "string",
+    FeatureNames.CP: "string",
+    FeatureNames.TRESTBPS: "Float64",
+    FeatureNames.CHOL: "Float64",
+    FeatureNames.FBS: "boolean",
+    FeatureNames.RESTECG: "string",
+    FeatureNames.THALCH: "Float64",
+    FeatureNames.EXANG: "boolean",
+    FeatureNames.OLDPEAK: "Float64",
+    FeatureNames.SLOPE: "string",
+    FeatureNames.CA: "Float64",
+    FeatureNames.THAL: "string",
+    FeatureNames.NUM: "Int64",
+}
+
+EXPECTED_SILVER_TYPES = {
+    FeatureNames.ID: "Int64",
+    FeatureNames.AGE: "Int64",
+    FeatureNames.SEX: "string",
     FeatureNames.CP: "string",
     FeatureNames.TRESTBPS: "Float64",
     FeatureNames.CHOL: "Float64",
