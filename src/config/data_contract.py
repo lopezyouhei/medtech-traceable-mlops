@@ -82,6 +82,9 @@ NUMERICAL_BOUNDS = {
 
 CATEGORICAL_SETS = {
     "BRONZE_COLUMN_NAMES": [e.value for e in FeatureNames],
+    "SILVER_COLUMN_NAMES": [
+        e.value for e in FeatureNames if e.value != FeatureNames.DATASET.value
+    ],
     FeatureNames.SEX: [e.value for e in SexCategories],
     FeatureNames.DATASET: [e.value for e in DatasetCategories],
     FeatureNames.CP: [e.value for e in CPCategories],
